@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" style="-fx-background-color: DARKCYAN;;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <ImageView pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Downloads/userimage.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="emailtxt" maxWidth="300.0" promptText="UserName" />
+      <PasswordField fx:id="passwordtxt" maxWidth="300.0" promptText="Password" />
+      <Button mnemonicParsing="false" onAction="#login" style="-fx-background-color: white;" text="Connexion" textFill="#2bbc98">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Button>
+   </children>
+   	
+   	<!--  pour fixer au milieu de l'ecran -->
+   <padding>
+      <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+   </padding>
+   
+</VBox>
