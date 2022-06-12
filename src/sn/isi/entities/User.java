@@ -1,5 +1,6 @@
 package sn.isi.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,51 +12,44 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class User {
+public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private int id;
-	@Column(length = 100, nullable = false)
-	private String nom; 
-	@Column(length = 100, nullable = false)
+	@Column(length = 50, nullable = false)
+	private String nom;
+	@Column(length = 50, nullable = false)
 	private String prenom;
-	@Column(length = 100, nullable = false)
+	@Column(length = 75, nullable = false)
 	private String email;
-	@Column(length = 100, nullable = false)
+	@Column(length = 250, nullable = false)
 	private String password;
-	@OneToMany(mappedBy ="user")
-	public List<Entrees> entrees = new ArrayList<Entrees>();
-	@OneToMany(mappedBy ="user")
-	public List<Sorties> sorties = new ArrayList<Sorties>();
-	
-	
-	public User() {
-		super();
-	}
-	
-
+	@OneToMany(mappedBy = "user")
+	private List<Produit> produits = new ArrayList<Produit>();
 	/**
 	 * @param id
 	 * @param nom
 	 * @param prenom
 	 * @param email
 	 * @param password
+	 * @param produits
 	 */
-	User(int id, String nom, String prenom, String email, String password,  List<Entrees> entrees, List<Sorties> sorties) 
-	
-	{
+	public User(int id, String nom, String prenom, String email, String password, List<Produit> produits) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.password = password;
-		this.entrees = entrees;
-		this.sorties = sorties;
+		this.produits = produits;
 	}
-	
-	
+	/**
+	 * 
+	 */
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public int getId() {
 		return id;
 	}
@@ -86,27 +80,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
-	public List<Entrees> getEntrees() {
-		return entrees;
+	public List<Produit> getProduits() {
+		return produits;
 	}
-
-
-	public void setEntrees(List<Entrees> entrees) {
-		this.entrees = entrees;
+	public void setProduits(List<Produit> produits) {
+		this.produits = produits;
 	}
-
-
-	public List<Sorties> getSorties() {
-		return sorties;
-	}
-
-
-	public void setSorties(List<Sorties> sorties) {
-		this.sorties = sorties;
-	}
-	
-	
 	
 }

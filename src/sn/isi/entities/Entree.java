@@ -3,6 +3,7 @@ package sn.isi.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,43 +14,39 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Entrees implements Serializable {
-	
+public class Entree implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(length = 100, nullable = false)
-	
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	
+	@Column
+	private double qtite;
+	@Column
 	private int prix;
-	
-	private double qte;
-	@ManyToOne
-	public User user = new User();
-	
-	public Entrees() {
-		super();
-	}
-	
+	@ManyToOne(cascade = CascadeType.ALL)
+	Produit produit = new Produit();
 	/**
 	 * @param id
 	 * @param date
+	 * @param qtite
 	 * @param prix
-	 * @param qte
+	 * @param produit
 	 */
-	Entrees(int id, Date date, int prix,double qte, User user ) 
-	{
+	public Entree(int id, Date date, double qtite, int prix, Produit produit) {
 		super();
 		this.id = id;
 		this.date = date;
+		this.qtite = qtite;
 		this.prix = prix;
-		this.qte = qte;
-		this.user = user;
+		this.produit = produit;
 	}
-
-	
+	/**
+	 * 
+	 */
+	public Entree() {
+		super();
+	}
 	public int getId() {
 		return id;
 	}
@@ -62,11 +59,11 @@ public class Entrees implements Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public double getQte() {
-		return qte;
+	public double getQtite() {
+		return qtite;
 	}
-	public void setQte(double qte) {
-		this.qte = qte;
+	public void setQtite(double qtite) {
+		this.qtite = qtite;
 	}
 	public int getPrix() {
 		return prix;
@@ -74,16 +71,11 @@ public class Entrees implements Serializable {
 	public void setPrix(int prix) {
 		this.prix = prix;
 	}
-
-	public User getUser() {
-		return user;
+	public Produit getProduit() {
+		return produit;
 	}
-
-	public void setUser(User user) {
-		this.user = user;
+	public void setProduit(Produit produit) {
+		this.produit = produit;
 	}
 	
-	
-	
-
 }

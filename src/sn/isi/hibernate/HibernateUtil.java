@@ -9,9 +9,9 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
 import sn.isi.entities.Categorie;
-import sn.isi.entities.Entrees;
+import sn.isi.entities.Entree;
 import sn.isi.entities.Produit;
-import sn.isi.entities.Sorties;
+import sn.isi.entities.Sortie;
 
 
 
@@ -42,8 +42,8 @@ public class HibernateUtil {
 				configuration.setProperties(settings);
 				configuration.addAnnotatedClass(Produit.class);
 				configuration.addAnnotatedClass(Categorie.class);
-				configuration.addAnnotatedClass(Entrees.class);
-				configuration.addAnnotatedClass(Sorties.class);
+				configuration.addAnnotatedClass(Entree.class);
+				configuration.addAnnotatedClass(Sortie.class);
  
 				ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 						.applySettings(configuration.getProperties()).build();
