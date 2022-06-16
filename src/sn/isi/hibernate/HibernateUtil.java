@@ -12,6 +12,7 @@ import sn.isi.entities.Categorie;
 import sn.isi.entities.Entree;
 import sn.isi.entities.Produit;
 import sn.isi.entities.Sortie;
+import sn.isi.entities.User;
 
 
 
@@ -40,6 +41,7 @@ public class HibernateUtil {
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
 				configuration.setProperties(settings);
+				configuration.addAnnotatedClass(User.class);
 				configuration.addAnnotatedClass(Produit.class);
 				configuration.addAnnotatedClass(Categorie.class);
 				configuration.addAnnotatedClass(Entree.class);

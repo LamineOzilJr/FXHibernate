@@ -24,24 +24,15 @@ public class User implements Serializable {
 	private String email;
 	@Column(length = 250, nullable = false)
 	private String password;
-	@OneToMany(mappedBy = "user")
-	private List<Produit> produits = new ArrayList<Produit>();
-	/**
-	 * @param id
-	 * @param nom
-	 * @param prenom
-	 * @param email
-	 * @param password
-	 * @param produits
-	 */
-	public User(int id, String nom, String prenom, String email, String password, List<Produit> produits) {
+	
+	public User(int id, String nom, String prenom, String email, String password) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.password = password;
-		this.produits = produits;
+		
 	}
 	/**
 	 * 
@@ -80,11 +71,6 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public List<Produit> getProduits() {
-		return produits;
-	}
-	public void setProduits(List<Produit> produits) {
-		this.produits = produits;
-	}
+	
 	
 }
