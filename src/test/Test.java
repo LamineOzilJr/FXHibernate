@@ -15,8 +15,8 @@ public class Test {
 		u.setPrenom("Basse");
 		
 		IUser userdao = new UserImpl();
-		int result = userdao.add(u);
-		System.out.println(result);
+		//int result = userdao.add(u);
+		//System.out.println(result);
 	}
 
 }
